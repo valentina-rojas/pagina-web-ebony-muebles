@@ -2,10 +2,12 @@ GESTIONAR PRODUCTOS CON SUPABASE (imagen, nombre y descripción)
 ================================================================
 
 QUÉ INCLUYE
-- admin.html     Panel privado para cargar, editar, ocultar, ordenar y borrar productos.
+- admin.html     Panel privado para cargar, editar, ocultar, ordenar y borrar productos
+                 (usa css/admin.css y js/admin.js).
 - supabase.sql   Crea la tabla, la carpeta de fotos y las reglas de seguridad.
 - config.js      Dos datos de tu proyecto de Supabase (URL y clave pública).
-- index.html     La página: si config.js está completo, muestra los productos cargados en el panel.
+- index.html     La página: si config.js está completo, muestra los productos cargados en el panel
+                 (esa lectura está en js/supabase.js).
 
 PASO A PASO (unos 15 minutos)
 1) Entrá a supabase.com, creá una cuenta y un proyecto nuevo (anotá la contraseña de la base de datos).
@@ -21,7 +23,7 @@ PASO A PASO (unos 15 minutos)
    - Project URL                -> en config.js, SUPA_URL
    - clave pública (anon / publishable) -> en config.js, SUPA_KEY
    NUNCA uses la clave "service_role" ni "secret".
-7) Subí TODA la carpeta (index.html, admin.html, config.js, imagenes...) a tu hosting.
+7) Subí TODA la carpeta (index.html, admin.html, config.js, css, js, imagenes...) a tu hosting.
 8) Entrá a tudominio.com/admin.html, iniciá sesión y listo.
 
 PRIMER USO
@@ -30,7 +32,11 @@ PRIMER USO
   Funciona solo si el sitio está en un hosting (no abriendo el archivo con doble clic).
 - "+ Agregar producto": elegí categoría, escribí nombre y descripción y subí la foto
   (se reduce sola a un tamaño liviano). Podés marcarlo como "Destacado" para que salga en el carrusel.
+- Filtro por categoría: arriba de la lista hay botones con cada categoría y la cantidad de productos. Tocá uno para ver
+  solo esa; "Todas" muestra todo. El filtro se recuerda, y "+ Agregar producto" parte de la categoría elegida.
 - Cada producto tiene flechas para subirlo o bajarlo de orden, y botones para Editar, Ocultar y Eliminar.
+- Arriba de la lista hay botones para FILTRAR por categoría (con la cantidad de fotos de cada una). El panel recuerda
+  la última categoría elegida; "Todas" vuelve a mostrar todo.
 
 CÓMO SE COMPORTA LA PÁGINA
 - Si una categoría tiene productos en el panel, la página muestra esos. Si no tiene, sigue usando las fotos

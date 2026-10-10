@@ -5,201 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ebony Muebles — Muebles artesanales clásicos</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f5eee3;--ink:#3a2418;--wood:#a64b2a;--moss:#5d6b3b;--sand:#eadcc8;--card:#fbf6ee;--line:#dccbb0;--olive:#a64b2a;--btnh:#6e3a22;--band:#4f5a35;--boucle:#d9cdbd;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{color-scheme:light;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Nunito,system-ui,sans-serif}
-h1,h2,h3{font-family:Poppins,Nunito,system-ui,sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.03em;margin:0}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--wood);outline-offset:3px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
-nav b{font-family:Poppins,Nunito,system-ui,sans-serif;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-nav div a{margin-left:22px;text-decoration:none}
-nav div a:hover{color:var(--wood)}
-.hero{position:relative;min-height:88vh;display:flex;align-items:center;padding:10vh 5vw;overflow:hidden;background:var(--bg)}
-.hero h1{font-size:clamp(2.8rem,6.6vw,5.4rem);font-weight:600;letter-spacing:-.045em;line-height:.98}
-.hero p{max-width:56ch;margin:0 0 16px}.hero h1{margin-bottom:24px}.hero .btn{margin-top:16px}
-.btn{display:inline-block;background:var(--olive);color:#f4efe6;padding:15px 30px;border-radius:0;text-decoration:none;font-weight:500;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase}
-.btn:hover{filter:brightness(1.1)}
-
-section{padding:10vh 5vw}
-.about{background:var(--sand);display:grid;grid-template-columns:1fr 1fr;gap:6vw}
-.about h2,.products h2{font-size:clamp(2.1rem,4vw,3.2rem)}
-.about p{max-width:60ch;margin:0 0 16px}
-.facts{display:grid;gap:20px;align-content:start}
-.facts div{border-left:4px solid var(--moss);padding-left:18px}
-.facts strong{font-size:1.7rem;font-family:Poppins,Nunito,system-ui,sans-serif;font-size:1.5rem;display:block}
-.products h2{margin-bottom:12px}
-.products>p{margin:0 0 40px;max-width:55ch}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cat{position:relative;aspect-ratio:1/1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 28px;background:var(--img,none) center/cover,linear-gradient(160deg,var(--c1),var(--c2))}
-.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,var(--card) 92%);pointer-events:none}
-.cat>*{position:relative;z-index:1}
-.cat h3{font-size:clamp(2.1rem,3.8vw,3.1rem);margin-bottom:18px}
-.cat .btn{align-self:flex-start;padding:12px 24px}
-
-
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.cat{padding:0 22px 22px}}
-.gal{padding:6vh 5vw 10vh}.back{display:inline-block;margin-bottom:28px}
-.gal h2{font-size:clamp(2.2rem,5vw,3.8rem)}.gal>p{margin:10px 0 36px;max-width:55ch}
-.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-bottom:40px}
-.gi{background:var(--card);border:1px solid var(--line)}
-.gi i{display:block;aspect-ratio:4/3;background:var(--img,none) center/cover,linear-gradient(160deg,var(--c1),var(--c2))}
-.gi div{padding:14px 16px 18px}.gi h3{font-size:1.5rem}.gi p{margin:4px 0 0;font-size:.92rem;opacity:.8}
-.dd{display:inline-block;position:relative;margin-left:22px}
-.dd summary{cursor:pointer;list-style:none;padding:4px 0}.dd summary::-webkit-details-marker{display:none}
-.dd summary::after{content:"";display:inline-block;width:6px;height:6px;margin:0 0 3px 8px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.dd[open] summary::after{transform:rotate(-135deg);margin-bottom:-2px}
-.dd summary:hover{color:var(--wood)}
-.dd ul{position:absolute;right:0;top:calc(100% + 14px);min-width:210px;margin:0;padding:8px 0;list-style:none;background:var(--card);border:1px solid var(--line);box-shadow:0 8px 24px rgba(60,40,20,.12)}
-.dd li a{display:block;margin:0;padding:9px 20px}.dd li a:hover{background:var(--sand);color:var(--wood)}
-.dd li:first-child{border-bottom:1px solid var(--line);margin-bottom:6px}
-
-
-@media(max-width:760px){.dd{margin-left:14px}.about{grid-template-columns:1fr}.hero{min-height:0;align-items:flex-start}.hero-bg{top:auto;height:55%;background-size:cover;background-position:center}.hero::after{background:linear-gradient(180deg,var(--bg) 0%,rgba(245,238,227,.93) 60%,rgba(245,238,227,.35) 100%)!important}nav div a{margin-left:14px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.cat:nth-child(1){--c1:#c9a98a;--c2:#ebdfd0}.cat:nth-child(2){--c1:#d6c7b6;--c2:#efe8de}.cat:nth-child(3){--c1:#8a6048;--c2:#d9c4b0}.cat:nth-child(4){--c1:#cfc2b3;--c2:#ece5db}.cat:nth-child(5){--c1:#b58d6c;--c2:#e6d3c0}.cat:nth-child(6){--c1:#9c7254;--c2:#dfcab6}.cat:nth-child(7){--c1:#d9cbbb;--c2:#f0e9e0}.cat:nth-child(8){--c1:#c4b09b;--c2:#e9dfd2}.cat:nth-child(9){--c1:#a98068;--c2:#e4d2c1}
-.micro{margin-top:34px;padding-top:16px;border-top:1px solid var(--ink);display:inline-block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
-.micro i{font-style:normal;margin:0 8px;opacity:.5}
-.band{background:var(--band);color:#f1ece0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:44px 5vw}
-.band p{font:600 clamp(1.6rem,3.4vw,2.7rem)/1.1 Poppins,Nunito,system-ui,sans-serif;margin:0;text-align:center}
-.bl,.br{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.9;opacity:.85}
-.br{text-align:right}
-@media(max-width:760px){.band{grid-template-columns:1fr;text-align:center}.br{text-align:center}}
-footer{background:var(--sand);color:var(--ink);padding:60px 5vw 28px;display:grid;grid-template-columns:1.4fr 1.2fr 1fr;gap:36px}
-footer b{font:600 1.2rem Poppins,Nunito,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-footer p{opacity:.8;max-width:30ch;margin:12px 0 0}
-footer h4{margin:0 0 14px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;font-weight:500}
-footer ul{list-style:none;margin:0;padding:0}footer ul.two{columns:2}
-footer li{margin-bottom:8px}footer a{text-decoration:none;opacity:.9}footer a:hover{text-decoration:underline}
-footer small{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;opacity:.7}
-@media(max-width:760px){footer{grid-template-columns:1fr}}
-.hero-bg{position:absolute;inset:0;background:var(--hero-img,none) no-repeat right center/auto 100%}
-.hero-bg svg{position:absolute;inset:0;width:100%;height:100%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 28%,rgba(245,238,227,.88) 46%,rgba(245,238,227,0) 74%);pointer-events:none}
-.hero>div:last-child{position:relative;z-index:1;max-width:620px}
-.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
-.foto{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:32px}
-.about{align-items:start}
-.about{align-items:center}
-.foto{margin-bottom:0;aspect-ratio:5/4}
-.about .facts{grid-column:1/-1;grid-template-columns:repeat(3,1fr);gap:32px;padding-top:48px;margin-top:12px;border-top:1px solid var(--line)}
-@media(max-width:760px){.about .facts{grid-template-columns:1fr;gap:24px;padding-top:32px}}
-.btn{transition:background .3s,transform .3s,box-shadow .3s}
-.btn::after{content:"\2192";display:inline-block;margin-left:12px;transition:transform .3s}
-.btn:hover{filter:none;background:var(--btnh);transform:translateY(-3px);box-shadow:0 10px 22px rgba(42,33,28,.25)}
-.btn:hover::after{transform:translateX(6px)}
-.btn:active{transform:translateY(0);box-shadow:none}
-.cat{background:linear-gradient(160deg,var(--c1),var(--c2))}
-.cat::before{content:"";position:absolute;inset:0;background:var(--img,none) center/cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.cat:hover::before{transform:scale(1.08)}
-.fotobox{overflow:hidden}
-.fotobox .foto{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.fotobox:hover .foto{transform:scale(1.07)}
-@media(prefers-reduced-motion:reduce){.btn,.btn::after,.cat::before,.fotobox .foto{transition:none}.btn:hover,.cat:hover::before,.fotobox:hover .foto,.btn:hover::after{transform:none}}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:6vw;background:var(--sand)}
-.contact h2{font-size:clamp(2.1rem,4vw,3.2rem);margin-bottom:18px}
-.contact p{max-width:46ch;margin:0 0 28px}
-.contact dl{margin:0}.contact dt{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-top:18px}
-.contact dd{margin:2px 0 0;font-size:1.05rem}
-#cf{display:grid;gap:18px;align-content:start}
-#cf label{display:grid;gap:6px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
-#cf input,#cf select,#cf textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:0;padding:13px 14px;width:100%}
-#cf input:focus,#cf select:focus,#cf textarea:focus{outline:2px solid var(--wood);outline-offset:0}
-#cf .invalid{border-color:#a33}
-#cf button{justify-self:start;border:0;cursor:pointer;font-family:inherit}
-.note{margin:0!important;font-size:.88rem;opacity:.75}
-@media(max-width:760px){.contact{grid-template-columns:1fr;gap:36px}}
-.contact dd a{text-decoration:underline;text-underline-offset:3px}.contact dd a:hover{color:var(--wood)}
-.ggrid.masonry{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.ph{margin:0;aspect-ratio:1/1;overflow:hidden;cursor:zoom-in;background:var(--sand)}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.ph:hover img{transform:scale(1.06)}
-#lb{position:fixed;inset:0;background:rgba(20,14,10,.93);display:none;align-items:center;justify-content:center;z-index:50}
-#lb.on{display:flex}
-#lb img{max-width:90vw;max-height:88vh;object-fit:contain}
-.lbb{position:absolute;background:none;border:0;color:#f4efe6;font-size:2.6rem;line-height:1;cursor:pointer;padding:14px}
-#lbp,#lbn{top:50%;transform:translateY(-50%)}
-@media(prefers-reduced-motion:reduce){.ph img{transition:none}.ph:hover img{transform:none}}
-.band{grid-template-columns:1fr;text-align:center}
-footer{grid-template-columns:1fr auto;align-items:center}
-footer ul.fl{display:flex;gap:28px;flex-wrap:wrap}footer ul.fl li{margin:0}
-@media(max-width:760px){footer{grid-template-columns:1fr}footer ul.fl{gap:20px}}
-@media(max-width:760px){
-nav{flex-direction:column;gap:8px;padding:12px 5vw}
-nav b{font-size:1rem}
-nav div{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 20px}
-nav div a,.dd{margin-left:0;font-size:.95rem}
-.dd{position:static}
-.dd ul{left:5vw;right:5vw;top:100%;min-width:0}
-}
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-@keyframes heroin{from{opacity:0;transform:scale(1.05)}}
-@keyframes navin{from{opacity:0;transform:translateY(-14px)}}
-nav{animation:navin .7s ease backwards}
-.hero-bg{animation:heroin 1.8s ease-out backwards}
-.hero>div:last-child>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*.13s + .15s)}
-.hero>div:last-child>:nth-child(2){--i:1}.hero>div:last-child>:nth-child(3){--i:2}.hero>div:last-child>:nth-child(4){--i:3}.hero>div:last-child>:nth-child(5){--i:4}.hero>div:last-child>:nth-child(6){--i:5}
-.gal>*:not(.ggrid){animation:rise .8s cubic-bezier(.2,.7,.2,1) backwards}
-.rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){nav,.hero-bg,.hero>div:last-child>*,.gal>*{animation:none}.rv{opacity:1;transform:none;transition:none}}
-.vacio{grid-column:1/-1;opacity:.75;margin:0}
-.cat{color:#fff;text-decoration:none}
-.cat::after{background:linear-gradient(to top,rgba(32,18,10,.62) 0%,rgba(32,18,10,.18) 38%,rgba(32,18,10,0) 62%)}
-.cat h3{font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-.045em;line-height:1;margin-bottom:6px}
-.cat p{margin:0;font-size:1rem;line-height:1.3;letter-spacing:-.02em;max-width:34ch}
-.cat h3,.cat p{text-shadow:0 2px 14px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.3)}
-.btn{border-radius:999px;font-family:Poppins,Nunito,system-ui,sans-serif;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;padding:14px 30px}
-#cf button{font-family:Poppins,Nunito,system-ui,sans-serif}
-#cf input,#cf select,#cf textarea{border-radius:12px}
-.facts strong{font-size:1.3rem}
-.featured{padding:8vh 0 10vh 5vw}
-.fhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-right:5vw;margin-bottom:28px}
-.fhead h2{font-size:clamp(2.1rem,4vw,3.2rem)}
-.farrows{display:flex;gap:10px}
-.farrows button{width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);font-size:1.2rem;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
-.farrows button:hover{background:var(--olive);border-color:var(--olive);color:#fff}
-.ftrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 5vw 18px 0;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
-.fi{flex:0 0 clamp(240px,26vw,340px);scroll-snap-align:start;text-decoration:none}
-.fi .im{aspect-ratio:4/5;overflow:hidden;background:var(--sand)}
-.fi img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.fi:hover img{transform:scale(1.07)}
-.fi h3{font-size:1.2rem;margin:14px 0 2px}
-.fi span{font-size:.92rem;opacity:.75}
-@media(prefers-reduced-motion:reduce){.fi img{transition:none}.fi:hover img{transform:none}}
-.facts div{border-left:0;padding-left:0;text-align:center}
-.facts div::before{content:"";display:block;width:36px;height:3px;background:var(--moss);margin:0 auto 14px}
-.featured{padding:8vh 5vw 10vh}
-.fhead{padding-right:0}
-.ftrack{padding:0 0 18px}
-#lb{padding:3vh 3vw}
-.lbbox{display:flex;width:min(1100px,100%);height:min(86vh,760px);background:var(--bg);overflow:hidden}
-.lbimg{position:relative;flex:1 1 60%;min-width:0;background:#1d130d;display:flex;align-items:center;justify-content:center}
-#lb .lbimg img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain}
-.lbimg .lbb{background:rgba(0,0,0,.3);border-radius:50%;width:44px;height:44px;padding:0;font-size:1.8rem;display:flex;align-items:center;justify-content:center}
-.lbinfo{flex:0 0 360px;padding:36px 30px;overflow:auto;display:flex;flex-direction:column;gap:12px;color:var(--ink)}
-.lbinfo #lbcat{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
-.lbinfo #lbcat:empty{display:none}
-.lbinfo h3{font-size:1.7rem}
-.lbinfo p{margin:0}
-.lbinfo .price{font-weight:700;font-size:1.25rem;color:var(--wood)}
-.lbinfo .price:empty{display:none}
-.lbinfo .btn{align-self:flex-start;margin-top:10px;color:#fff}
-.lbinfo .more{font-size:.92rem;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:760px){.lbbox{flex-direction:column;height:92vh}.lbimg{flex:0 0 50%}.lbinfo{flex:1 1 auto;padding:20px}}
-</style>
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<nav><b>Ebony Muebles</b><div><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><details class="dd" id="dd"><summary>Productos</summary><ul><li><a href="#productos">Ver todos</a></li><li><a href="#/bibliotecas">Bibliotecas</a></li><li><a href="#/espejos">Espejos</a></li><li><a href="#/escritorios">Escritorios</a></li><li><a href="#/vanitorys">Vanitorys</a></li><li><a href="#/percheros">Percheros</a></li><li><a href="#/cristaleros">Cristaleros</a></li><li><a href="#/dormitorio">Dormitorio</a></li><li><a href="#/cocina">Cocina</a></li><li><a href="#/living">Living</a></li></ul></details><a href="#contacto">Contacto</a></div></nav>
 
-<div id="home">
-<header class="hero" id="inicio">
-<div class="hero-bg" role="img" aria-label="Mueble de living tallado en madera" style="--hero-img:url(imagenes/inicio.jpg)"></div>
+<!-- =====================================================
+     ESTRUCTURA DE LA PÁGINA
+     Los estilos están en css/estilos.css y la lógica en js/*.js.
+     Las categorías (menú, tarjetas y lista del formulario)
+     se generan solas desde js/datos.js.
+     ===================================================== -->
+
+<!-- ===== MENÚ SUPERIOR ===== -->
+<nav>
+<b>Ebony Muebles</b>
 <div>
+<a href="#inicio">Inicio</a>
+<a href="#nosotros">Nosotros</a>
+<details class="dd" id="dd"><summary>Productos</summary><ul id="menu-categorias"></ul></details>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+
+<!-- ===== PÁGINA PRINCIPAL (inicio + empresa + productos + destacados + contacto) ===== -->
+<div id="home">
+
+<!-- Inicio: la foto de fondo es imagenes/inicio.jpg -->
+<header class="hero" id="inicio">
+<div class="hero-bg" role="img" aria-label="Mueble de living tallado en madera"></div>
+<div class="hero-texto">
 <div class="eyebrow">Desde el año 2000</div>
 <h1>Ebony Muebles</h1>
 <p>Desde el año 2000, venimos trabajando para brindarles muebles clásicos, con la mejor calidad y diseño.</p>
@@ -209,11 +43,12 @@ nav{animation:navin .7s ease backwards}
 </div>
 </header>
 
+<!-- La empresa: la foto es imagenes/empresa.jpg -->
 <section class="about" id="nosotros">
 <div class="fotobox"><img class="foto" alt="Perchero tallado a mano en el taller de Ebony Muebles" src="imagenes/empresa.jpg"></div>
 <div class="atext">
 <h2>La empresa</h2>
-<p style="margin-top:20px">En Ebony nos dedicamos a la fabricación artesanal de muebles. Artesanal porque nuestros muebles no poseen el acabado de un mueble estándar o seriado, y eso es lo que hace de cada pieza algo único y exclusivo.</p>
+<p>En Ebony nos dedicamos a la fabricación artesanal de muebles. Artesanal porque nuestros muebles no poseen el acabado de un mueble estándar o seriado, y eso es lo que hace de cada pieza algo único y exclusivo.</p>
 <p>La pasión y dedicación del artesano está reflejada en cada etapa de la producción. Desde el diseño hasta el acabado final mantenemos siempre el mismo objetivo, el de respetar la nobleza de nuestra materia prima principal: la madera.</p>
 <p>No solo trabajamos sobre diseños propios sino que atendemos las inquietudes de nuestros clientes y nos adaptamos a sus necesidades, pensando en la mejora continua porque en Ebony fabricamos muebles en serio, no en serie.</p>
 </div>
@@ -224,25 +59,23 @@ nav{animation:navin .7s ease backwards}
 </div>
 </section>
 
-<section class="products" id="productos">
+<!-- Categorías: las tarjetas las arma js/categorias.js (portadas en imagenes/portadas/) -->
+<section class="productos" id="productos">
 <h2>Nuestros productos</h2>
 <p>Elegí una categoría para ver los modelos disponibles.</p>
-<div class="grid">
-<a class="cat" style="--img:url(imagenes/portadas/bibliotecas.jpg)" href="#/bibliotecas"><h3>Bibliotecas</h3><p>Estantes fijos o regulables, en la madera que elijas.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/espejos.jpg)" href="#/espejos"><h3>Espejos</h3><p>Marcos de madera maciza, para pared o de pie.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/escritorios.jpg)" href="#/escritorios"><h3>Escritorios</h3><p>Para casa u oficina, con o sin cajones.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/vanitorys.jpg)" href="#/vanitorys"><h3>Vanitorys</h3><p>Resistentes a la humedad, con la mesada que prefieras.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/percheros.jpg)" href="#/percheros"><h3>Percheros</h3><p>Entradas ordenadas, con ganchos, espejo o banco.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/cristaleros.jpg)" href="#/cristaleros"><h3>Cristaleros</h3><p>Vitrinas con vidrio y estantes para vajilla.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/dormitorio.jpg)" href="#/dormitorio"><h3>Dormitorio</h3><p>Camas, mesas de luz, cómodas y placares para descansar.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/cocina.jpg)" href="#/cocina"><h3>Cocina</h3><p>Alacenas, bajo mesadas y muebles auxiliares.</p></a>
-<a class="cat" style="--img:url(imagenes/portadas/living.jpg)" href="#/living"><h3>Living</h3><p>Mesas ratonas, mesas de arrime, bibliotecas y muebles para TV.</p></a>
-</div>
+<div class="grid" id="grid-categorias"></div>
 </section>
+
+<!-- Productos destacados: carrusel que arma js/destacados.js -->
 <section class="featured" id="destacados">
-<div class="fhead"><h2>Productos destacados</h2><div class="farrows"><button id="fp" aria-label="Anterior">&larr;</button><button id="fn" aria-label="Siguiente">&rarr;</button></div></div>
+<div class="fhead">
+<h2>Productos destacados</h2>
+<div class="farrows"><button id="fp" aria-label="Anterior">&larr;</button><button id="fn" aria-label="Siguiente">&rarr;</button></div>
+</div>
 <div class="ftrack" id="ft" tabindex="0" aria-label="Productos destacados"></div>
 </section>
+
+<!-- Contacto: el formulario abre WhatsApp (js/contacto.js) -->
 <section class="contact" id="contacto">
 <div>
 <h2>Contacto</h2>
@@ -257,122 +90,68 @@ nav{animation:navin .7s ease backwards}
 <form id="cf" novalidate>
 <label>Nombre<input id="cn" required autocomplete="name"></label>
 <label>Teléfono o correo<input id="cc" required autocomplete="email"></label>
-<label>Categoría<select id="cs"><option value="">Elegí una categoría</option><option value="Bibliotecas">Bibliotecas</option><option value="Espejos">Espejos</option><option value="Escritorios">Escritorios</option><option value="Vanitorys">Vanitorys</option><option value="Percheros">Percheros</option><option value="Cristaleros">Cristaleros</option><option value="Dormitorio">Dormitorio</option><option value="Cocina">Cocina</option><option value="Living">Living</option><option value="Otro">Otro mueble</option></select></label>
+<label>Categoría<select id="cs"></select></label>
 <label>Mensaje<textarea id="cm" rows="5" required></textarea></label>
 <button class="btn" type="submit">Enviar por WhatsApp</button>
 <p id="cr" class="note" role="status">Se abrirá WhatsApp con tu consulta lista para enviar.</p>
 </form>
 </section>
-</div>
 
+</div><!-- /home -->
+
+<!-- ===== GALERÍA DE UNA CATEGORÍA (se muestra al elegir una categoría) ===== -->
 <main id="galeria" hidden>
-<section class="gal"><a class="back" href="#productos">Volver a productos</a><h2 id="gt"></h2><p id="gd"></p><div class="ggrid" id="gg"></div><a class="btn" href="#contacto">Consultar por esta categoría</a></section>
+<section class="gal">
+<a class="back" href="#productos">Volver a productos</a>
+<h2 id="gt"></h2>
+<p id="gd"></p>
+<div class="ggrid" id="gg"></div>
+<a class="btn" href="#contacto">Consultar por esta categoría</a>
+</section>
 </main>
 
+<!-- ===== PIE DE PÁGINA ===== -->
 <footer>
-<div><b>Ebony Muebles</b><p>Muebles clásicos y artesanales, tallados a mano.</p></div>
-<div><ul class="fl"><li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#productos">Productos</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
-<small>© 2026 Ebony Muebles. Todos los derechos reservados.</small>
+<div class="pie-texto">
+<p>Ebony Muebles | Rafaela - Santa Fe - Argentina | Teléfono: +54 9 3492 66-6660</p>
+<small>© 2026 Ebony Muebles. All rights reserved.</small>
+</div>
+<a class="subir" href="#inicio" aria-label="Volver arriba"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V5M5 12l7-7 7 7"/></svg></a>
 </footer>
-<div id="lb" role="dialog" aria-modal="true" aria-label="Detalle del producto"><button class="lbb" id="lbx" aria-label="Cerrar" style="top:calc(env(safe-area-inset-top,0px) + 6px);right:8px">&times;</button>
-<div class="lbbox"><div class="lbimg"><button class="lbb" id="lbp" aria-label="Anterior" style="left:8px">&lsaquo;</button><img alt=""><button class="lbb" id="lbn" aria-label="Siguiente" style="right:8px">&rsaquo;</button></div>
-<aside class="lbinfo"><span id="lbcat"></span><h3 id="lbt"></h3><p id="lbd"></p><p class="price" id="lbpr"></p><a class="btn" id="lbw" target="_blank" rel="noopener">Consultar por WhatsApp</a><a class="more" id="lbmore" href="#">Ver más de esta categoría</a></aside></div></div>
-<script src="config.js"></script>
-<script>
-const C={
-bibliotecas:["Bibliotecas", "Estantes fijos o regulables, en la madera que elijas."],
-espejos:["Espejos", "Marcos de madera maciza, para pared o de pie."],
-escritorios:["Escritorios", "Para casa u oficina, con o sin cajones."],
-vanitorys:["Vanitorys", "Resistentes a la humedad, con la mesada que prefieras."],
-percheros:["Percheros", "Entradas ordenadas, con ganchos, espejo o banco."],
-cristaleros:["Cristaleros", "Vitrinas con vidrio y estantes para vajilla."],
-dormitorio:["Dormitorio", "Camas, mesas de luz, cómodas y placares para descansar."],
-cocina:["Cocina", "Alacenas, bajo mesadas y muebles auxiliares."],
-living:["Living", "Mesas ratonas, mesas de arrime, bibliotecas y muebles para TV."]};
-const WA='5493492666660';
-const cf=document.getElementById('cf'),cs=document.getElementById('cs');
-cf.addEventListener('submit',e=>{
- e.preventDefault();
- const f=['cn','cc','cm'].map(i=>document.getElementById(i));let ok=true;
- f.forEach(x=>{const bad=!x.value.trim();x.classList.toggle('invalid',bad);if(bad)ok=false});
- const r=document.getElementById('cr');
- if(!ok){r.textContent='Completá tu nombre, un dato de contacto y el mensaje.';return}
- const body=`Nombre: ${f[0].value}\nContacto: ${f[1].value}\nCategoría: ${cs.value||'-'}\n\n${f[2].value}`;
- r.textContent='Se abrirá WhatsApp con tu consulta lista para enviar.';
- window.open(`https://wa.me/${WA}?text=${encodeURIComponent('Hola, quiero hacer una consulta.\n\n'+body)}`,'_blank','noopener');
-});
-let lastCat='';
-/* ===== FOTOS DE CADA CATEGORÍA =====
-   Las fotos van en la carpeta imagenes/<categoria>/ con nombres 01.jpg, 02.jpg, 03.jpg...
-   Acá indicá cuántas fotos hay en cada carpeta. */
-const FOTOS={bibliotecas: 20, espejos: 1, escritorios: 1, vanitorys: 1, percheros: 1, cristaleros: 1, dormitorio: 1, cocina: 1, living: 1};
-const P=Object.fromEntries(Object.entries(FOTOS).map(([k,n])=>[k,Array.from({length:n},(_,i)=>`imagenes/${k}/${String(i+1).padStart(2,'0')}.jpg`)]));
-/* Fotos de "Productos destacados": ['categoria', número de foto menos 1]. Ej: ['bibliotecas',2] es la foto 03 de esa carpeta. */
-const DESTACADOS=[['bibliotecas',19],['percheros',0],['cristaleros',0],['bibliotecas',2],['dormitorio',0],['escritorios',0],['bibliotecas',15],['living',0],['vanitorys',0],['bibliotecas',18],['espejos',0],['cocina',0]];
-/* Datos de cada producto (opcional). Clave: 'categoria/NN' (NN = número de la foto, ej. '03').
-   Campos: n = nombre, d = descripción, p = precio. Si una foto no está acá, se muestra la categoría.
-   Ejemplo:  'bibliotecas/03':{n:'Biblioteca blanca con puertas',d:'Dos cuerpos, estantes regulables.',p:'$ 450.000'}, */
-const PRODUCTOS={
-};
-const pk=x=>x.k+'/'+String(x.i+1).padStart(2,'0');
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let FEAT=DESTACADOS.map(([k,i])=>({u:(P[k]||[])[i],k,i})).filter(x=>x.u);
-function renderFeat(){const t=document.getElementById('ft');t.innerHTML=FEAT.map((x,n)=>{const pr=PRODUCTOS[pk(x)]||{},nm=esc(pr.n||C[x.k][0]);return `<a class="fi" href="#/${x.k}" data-n="${n}"><div class="im"><img loading="lazy" src="${esc(x.u)}" alt="${nm}"></div><h3>${nm}</h3><span>${esc(pr.p||'Ver detalle')}</span></a>`}).join('')}
-renderFeat();
-(function(){const t=document.getElementById('ft');const go=d=>t.scrollBy({left:d*t.clientWidth*.8,behavior:'smooth'});
-document.getElementById('fp').onclick=()=>go(-1);document.getElementById('fn').onclick=()=>go(1)})();
-let slug='';
-const lb=document.getElementById('lb'),lbi=lb.querySelector('.lbimg img'),g=id=>document.getElementById(id);let LBI=[],cur=0;
-function openViewer(items,i){LBI=items;lbShow(i)}
-function lbShow(i){const L=LBI;if(!L.length)return;cur=(i+L.length)%L.length;const it=L[cur],n=String(it.i+1).padStart(2,'0'),pr=PRODUCTOS[it.k+'/'+n]||{},cat=C[it.k][0],name=pr.n||cat,label=pr.n?pr.n+' ('+cat+')':cat+', foto '+n;
-lbi.src=it.u;lbi.alt=name;g('lbcat').textContent=pr.n?cat:'';g('lbt').textContent=name;g('lbd').textContent=pr.d||C[it.k][1];g('lbpr').textContent=pr.p||'';
-g('lbw').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, me interesa este mueble: '+label+'. ¿Podrían darme más información?');
-g('lbmore').href='#/'+it.k;g('lbp').style.display=g('lbn').style.display=L.length>1?'':'none';lb.classList.add('on')}
-function lbClose(){lb.classList.remove('on');lbi.removeAttribute('src')}
-g('gg').addEventListener('click',e=>{const f=e.target.closest('.ph');if(f)openViewer((P[slug]||[]).map((u,i)=>({u,k:slug,i})),+f.dataset.i)});
-g('ft').addEventListener('click',e=>{const a=e.target.closest('.fi');if(!a)return;e.preventDefault();openViewer(FEAT,+a.dataset.n)});
-g('lbx').onclick=lbClose;g('lbmore').onclick=lbClose;
-g('lbp').onclick=()=>lbShow(cur-1);g('lbn').onclick=()=>lbShow(cur+1);
-lb.addEventListener('click',e=>{if(e.target===lb)lbClose()});
-document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')lbShow(cur-1);if(e.key==='ArrowRight')lbShow(cur+1)});
-const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'}):null;
-function rv(list){const by=new Map();list.forEach(el=>{if(el.classList.contains('rv'))return;el.classList.add('rv');const p=el.parentElement,k=by.get(p)||0;by.set(p,k+1);el.style.setProperty('--d',(k%3)*.12+'s');io?io.observe(el):el.classList.add('in')})}
-rv(document.querySelectorAll('.band p,.about .fotobox,.about .atext,.about .facts>div,.products h2,.products>p,.cat,.contact>div,#cf,footer>*'));
-rv(document.querySelectorAll('.fhead,.ftrack'));
-function rvGal(){rv(document.querySelectorAll('#gg .ph,#gg .gi'))}
-const home=document.getElementById('home'),gal=document.getElementById('galeria');
-function route(){
- const m=location.hash.match(/^#\/(\w+)/),c=m&&C[m[1]];
- if(c){
-  document.getElementById('gt').textContent=c[0];document.getElementById('gd').textContent=c[1];
-  const gg=document.getElementById('gg'),ph=P[m[1]]||[];slug=m[1];gg.className='ggrid masonry';gg.innerHTML=ph.length?ph.map((u,i)=>`<figure class="ph" data-i="${i}"><img loading="lazy" src="${u}" alt="${c[0]} de Ebony Muebles, foto ${i+1}"></figure>`).join(''):'<p class="vacio">Pronto vamos a subir fotos de esta categoría.</p>';
-  lastCat=c[0];rvGal();home.hidden=true;gal.hidden=false;window.scrollTo(0,0);document.title=c[0]+" — Ebony Muebles";
- }else{
-  const was=home.hidden;if(location.hash==='#contacto'&&lastCat&&was)cs.value=lastCat;home.hidden=false;gal.hidden=true;document.title="Ebony Muebles — Muebles artesanales clásicos";
-  const t=document.getElementById(location.hash.slice(1));if(t&&was)t.scrollIntoView();
- }
-}
-const dd=document.getElementById('dd');
-document.addEventListener('click',e=>{if(!dd.contains(e.target)||e.target.closest('li a'))dd.open=false});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')dd.open=false});
-/* ===== Productos desde Supabase (si config.js está completo) ===== */
-async function cargarSupabase(){
- if(typeof SUPA_URL!=='string'||!SUPA_URL||!SUPA_KEY)return false;
- try{
-  const r=await fetch(SUPA_URL.replace(/\/+$/,'')+'/rest/v1/productos?select=*&visible=eq.true&order=orden.asc,id.asc',{headers:{apikey:SUPA_KEY}});
-  if(!r.ok)return false;
-  const rows=await r.json(),seen={},dest=[];
-  rows.forEach(x=>{const k=x.categoria;if(!C[k]||!x.imagen_url)return;
-   if(!seen[k]){seen[k]=1;P[k]=[];Object.keys(PRODUCTOS).forEach(q=>{if(q.startsWith(k+'/'))delete PRODUCTOS[q]})}
-   const i=P[k].push(x.imagen_url)-1;
-   PRODUCTOS[k+'/'+String(i+1).padStart(2,'0')]={n:x.nombre,d:x.descripcion||''};
-   if(x.destacado)dest.push({u:x.imagen_url,k,i})});
-  if(dest.length)FEAT=dest;
-  return rows.length>0;
- }catch(e){return false}
-}
-addEventListener('hashchange',route);route();
-cargarSupabase().then(ok=>{if(!ok)return;renderFeat();if(location.hash.startsWith('#/'))route()});
-</script>
+
+<!-- ===== FICHA DE PRODUCTO (visor que se abre al hacer clic en una foto) ===== -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Detalle del producto">
+<button class="lbb" id="lbx" aria-label="Cerrar">&times;</button>
+<div class="lbbox">
+<div class="lbimg">
+<button class="lbb" id="lbp" aria-label="Anterior">&lsaquo;</button>
+<img alt="">
+<button class="lbb" id="lbn" aria-label="Siguiente">&rsaquo;</button>
+</div>
+<aside class="lbinfo">
+<span id="lbcat"></span>
+<h3 id="lbt"></h3>
+<p id="lbd"></p>
+<p class="price" id="lbpr"></p>
+<a class="btn" id="lbw" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+<a class="more" id="lbmore" href="#">Ver más de esta categoría</a>
+</aside>
+</div>
+</div>
+
+<!-- ===== SCRIPTS (el orden importa: cada uno usa lo definido antes) ===== -->
+<script src="config.js"></script>            <!-- conexión opcional con Supabase -->
+<script src="js/utilidades.js"></script>     <!-- funciones de ayuda -->
+<script src="js/datos.js"></script>          <!-- categorías, fotos, destacados, WhatsApp -->
+<script src="js/categorias.js"></script>     <!-- arma menú, tarjetas y lista del formulario -->
+<script src="js/animaciones.js"></script>    <!-- efectos al hacer scroll -->
+<script src="js/visor.js"></script>          <!-- ficha de producto -->
+<script src="js/destacados.js"></script>     <!-- carrusel de destacados -->
+<script src="js/galeria.js"></script>        <!-- galería de cada categoría -->
+<script src="js/contacto.js"></script>       <!-- formulario → WhatsApp -->
+<script src="js/menu.js"></script>           <!-- cierre del menú desplegable -->
+<script src="js/supabase.js"></script>       <!-- productos desde Supabase -->
+<script src="js/navegacion.js"></script>     <!-- cambio entre inicio y galerías -->
+<script src="js/app.js"></script>            <!-- arranque -->
 </body>
 </html>

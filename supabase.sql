@@ -25,7 +25,7 @@ create index if not exists productos_cat_orden on public.productos (categoria, o
 -- ¿Quién es el administrador? (único correo que puede cargar/editar)
 create or replace function public.es_admin() returns boolean
 language sql stable as $$
-  select coalesce(lower(auth.jwt() ->> 'email') = lower('valentinarojas618@gmail.com'), false)
+  select coalesce(lower(auth.jwt() ->> 'email') = lower('CAMBIAR@CORREO.COM'), false)
 $$;
 
 -- Permisos y seguridad a nivel de fila
