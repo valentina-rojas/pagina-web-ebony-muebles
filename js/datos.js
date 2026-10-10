@@ -26,7 +26,7 @@ const C = {
    Las fotos van en imagenes/<categoría>/ con nombres 01.jpg, 02.jpg, 03.jpg...
    Acá se indica cuántas fotos hay en cada carpeta. */
 const FOTOS = {
-  bibliotecas: 20, espejos: 1, escritorios: 1, vanitorys: 1, percheros: 1,
+  bibliotecas: 1, espejos: 1, escritorios: 1, vanitorys: 1, percheros: 1,
   cristaleros: 1, dormitorio: 1, cocina: 1, living: 1
 };
 
