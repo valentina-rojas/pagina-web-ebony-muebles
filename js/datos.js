@@ -4,7 +4,7 @@
 
 /* ---- WhatsApp ----
    Número en formato internacional, sin "+" ni espacios. */
-const WA = '5493492666660';
+const WA = '5493492611548';
 
 /* ---- Categorías ----
    clave: [título, descripción corta]
@@ -12,7 +12,7 @@ const WA = '5493492666660';
    y de la portada (imagenes/portadas/<clave>.jpg). */
 const C = {
   bibliotecas: ['Bibliotecas', 'Estantes fijos o regulables, en la madera que elijas.'],
-  espejos:     ['Espejos', 'Marcos de madera maciza, para pared o de pie.'],
+  armeros:     ['Armeros', 'Armeros de madera, fabricados a medida.'],
   escritorios: ['Escritorios', 'Para casa u oficina, con o sin cajones.'],
   vanitorys:   ['Vanitorys', 'Resistentes a la humedad, con la mesada que prefieras.'],
   percheros:   ['Percheros', 'Entradas ordenadas, con ganchos, espejo o banco.'],
@@ -26,7 +26,7 @@ const C = {
    Las fotos van en imagenes/<categoría>/ con nombres 01.jpg, 02.jpg, 03.jpg...
    Acá se indica cuántas fotos hay en cada carpeta. */
 const FOTOS = {
-  bibliotecas: 1, espejos: 1, escritorios: 1, vanitorys: 1, percheros: 1,
+  bibliotecas: 20, armeros: 1, escritorios: 1, vanitorys: 1, percheros: 1,
   cristaleros: 1, dormitorio: 1, cocina: 1, living: 1
 };
 
@@ -41,7 +41,7 @@ const P = Object.fromEntries(
 const DESTACADOS = [
   ['bibliotecas', 19], ['percheros', 0], ['cristaleros', 0], ['bibliotecas', 2],
   ['dormitorio', 0], ['escritorios', 0], ['bibliotecas', 15], ['living', 0],
-  ['vanitorys', 0], ['bibliotecas', 18], ['espejos', 0], ['cocina', 0]
+  ['vanitorys', 0], ['bibliotecas', 18], ['armeros', 0], ['cocina', 0]
 ];
 
 /* ---- Datos de cada producto (opcional) ----

@@ -22,7 +22,7 @@ input[type=checkbox]{width:auto}
 #msg{margin:0 0 14px;padding:0;border-radius:10px}#msg.ok,#msg.err{padding:10px 14px}
 #msg.ok{background:#e3ecd5}#msg.err{background:#f6d9d0;color:#7a2410}
 .items{display:grid;gap:10px}
-.it{display:grid;grid-template-columns:84px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);padding:10px}
+.it{display:grid;grid-template-columns:26px 84px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);padding:10px}
 .it.off{opacity:.55}.it img{width:84px;height:84px;object-fit:cover;background:var(--sand)}
 .txt{display:grid;gap:2px;min-width:0}.txt span{font-size:.9rem;opacity:.75;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .tags i{font-style:normal;font-size:.75rem;background:var(--sand);padding:2px 8px;border-radius:99px;margin-right:6px}.tags i.off{background:#e8c9bd}
@@ -30,8 +30,8 @@ input[type=checkbox]{width:auto}
 .acts button{font:600 .85rem Nunito;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--ink)}
 .acts button:hover:not(:disabled){background:var(--sand)}.acts button:disabled{opacity:.3;cursor:default}.acts .del{color:#8a2a12}
 .empty{opacity:.75}
-body.busy{cursor:progress}body.busy button{pointer-events:none;opacity:.7}
-@media(max-width:640px){.it{grid-template-columns:70px 1fr}.it img{width:70px;height:70px}.acts{grid-column:1/-1;justify-content:flex-start}}
+body.busy{cursor:progress}body.busy button{pointer-events:none;opacity:.7}body.busy .grip{pointer-events:none}
+@media(max-width:640px){.it{grid-template-columns:26px 70px 1fr}.it img{width:70px;height:70px}.acts{grid-column:1/-1;justify-content:flex-start}}
 
 /* Filtro por categoría */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
@@ -40,3 +40,16 @@ body.busy{cursor:progress}body.busy button{pointer-events:none;opacity:.7}
 .chip:hover{background:var(--sand)}
 .chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .chip.on small{opacity:.9}
+
+/* Arrastrar para ordenar */
+.grip{display:grid;place-items:center;align-self:stretch;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;font-size:1.25rem;letter-spacing:-3px;opacity:.45}
+.grip:hover{opacity:.9}
+.grip.off{visibility:hidden;pointer-events:none}
+.it.arrastrando{position:relative;z-index:2;background:#fff;box-shadow:0 10px 28px rgba(58,36,24,.22)}
+body.arrastrando-ya,body.arrastrando-ya *{cursor:grabbing!important;user-select:none;-webkit-user-select:none}
+
+/* Cursores: flecha sobre los textos, manito en lo clickeable, cursor de texto solo en los campos */
+body{cursor:default}
+a,button,select,label,.chip{cursor:pointer}
+input,textarea{cursor:text}
+input[type=checkbox],input[type=file]{cursor:pointer}

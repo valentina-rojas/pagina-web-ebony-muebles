@@ -5,8 +5,8 @@
    LOCALES = cuántas fotos hay en cada carpeta imagenes/<categoría>/
    (solo se usa para el botón "Importar fotos actuales")
    ========================================================= */
-const CATS=[['bibliotecas','Bibliotecas'],['espejos','Espejos'],['escritorios','Escritorios'],['vanitorys','Vanitorys'],['percheros','Percheros'],['cristaleros','Cristaleros'],['dormitorio','Dormitorio'],['cocina','Cocina'],['living','Living']];
-const LOCALES={bibliotecas:20,espejos:1,escritorios:1,vanitorys:1,percheros:1,cristaleros:1,dormitorio:1,cocina:1,living:1};
+const CATS=[['bibliotecas','Bibliotecas'],['armeros','Armeros'],['escritorios','Escritorios'],['vanitorys','Vanitorys'],['percheros','Percheros'],['cristaleros','Cristaleros'],['dormitorio','Dormitorio'],['cocina','Cocina'],['living','Living']];
+const LOCALES={bibliotecas:20,armeros:1,escritorios:1,vanitorys:1,percheros:1,cristaleros:1,dormitorio:1,cocina:1,living:1};
 const $=s=>document.querySelector(s),BASE=(typeof SUPA_URL==='string'?SUPA_URL:'').replace(/\/+$/,''),KEY=typeof SUPA_KEY==='string'?SUPA_KEY:'';
 const nm=k=>(CATS.find(c=>c[0]===k)||[k,k])[1],J={'Content-Type':'application/json',Prefer:'return=minimal'};
 let session=null,rows=[],editing=null;
@@ -55,7 +55,8 @@ function comprimir(file,max=1400){return new Promise((ok,no)=>{const u=URL.creat
 /* =========================================================
    LISTADO · muestra los productos agrupados por categoría
    ========================================================= */
-function item(r,i,n){return h('article',{class:'it'+(r.visible?'':' off')},
+function item(r,i,n){return h('article',{class:'it'+(r.visible?'':' off'),'data-id':r.id},
+ h('span',{class:'grip'+(n>1?'':' off'),title:'Arrastrar para cambiar el orden',onpointerdown:e=>iniciarArrastre(e,e.currentTarget.parentElement)},'⋮⋮'),
  h('img',{src:r.imagen_url,alt:r.nombre,loading:'lazy'}),
  h('div',{class:'txt'},h('b',{},r.nombre),h('span',{},r.descripcion||'Sin descripción'),h('div',{class:'tags'},r.destacado?h('i',{},'Destacado'):null,r.visible?null:h('i',{class:'off'},'Oculto'))),
  h('div',{class:'acts'},
@@ -75,6 +76,47 @@ function renderList(){renderFiltros();const box=$('#list');box.replaceChildren()
  CATS.filter(([k])=>!filtro||k===filtro).forEach(([k,t])=>{const l=rows.filter(r=>r.categoria===k);if(!l.length)return;hay=true;
   box.append(h('h2',{},t,h('small',{},'  '+l.length+(l.length>1?' fotos':' foto'))),h('div',{class:'items'},l.map((r,i)=>item(r,i,l.length))))});
  if(!hay)box.append(h('p',{class:'empty'},'Todavía no hay productos en esta categoría. Usá “+ Agregar producto” para cargar el primero.'))}
+
+/* =========================================================
+   ARRASTRAR PARA ORDENAR · se agarra el ícono ⋮⋮ de un producto y se suelta en su nuevo lugar
+   (funciona con mouse y con el dedo en el celular; las flechas ↑ ↓ siguen disponibles)
+   ========================================================= */
+let arr=null;   // arrastre en curso: {el, cont, antes, y}
+
+// Dado el alto (Y) del puntero y los demás productos, devuelve ANTES de cuál hay que insertar (null = al final)
+function destinoArrastre(y,otros){for(const o of otros){const r=o.getBoundingClientRect();if(y<r.top+r.height/2)return o}return null}
+
+function recolocar(){   // mueve el producto arrastrado a la posición que marca el puntero
+ const otros=[...arr.cont.children].filter(x=>x!==arr.el),d=destinoArrastre(arr.y,otros);
+ if(d!==arr.el.nextElementSibling)arr.cont.insertBefore(arr.el,d)}
+function moverArrastre(e){if(arr){arr.y=e.clientY;recolocar()}}
+function autoScroll(){   // si el puntero está cerca del borde de la pantalla, la lista se desplaza sola
+ if(!arr)return;const m=90;
+ if(arr.y<m){window.scrollBy(0,-Math.ceil((m-arr.y)/6));recolocar()}
+ else if(arr.y>innerHeight-m){window.scrollBy(0,Math.ceil((arr.y-(innerHeight-m))/6));recolocar()}
+ requestAnimationFrame(autoScroll)}
+function iniciarArrastre(e,el){
+ if(e.pointerType==='mouse'&&e.button!==0)return;
+ e.preventDefault();
+ const cont=el.parentElement;
+ arr={el,cont,antes:[...cont.children].map(x=>x.dataset.id).join(','),y:e.clientY};
+ el.classList.add('arrastrando');document.body.classList.add('arrastrando-ya');
+ document.addEventListener('pointermove',moverArrastre);
+ document.addEventListener('pointerup',soltarArrastre);
+ document.addEventListener('pointercancel',soltarArrastre);
+ requestAnimationFrame(autoScroll)}
+function soltarArrastre(){
+ if(!arr)return;
+ const {el,cont,antes}=arr;arr=null;
+ document.removeEventListener('pointermove',moverArrastre);
+ document.removeEventListener('pointerup',soltarArrastre);
+ document.removeEventListener('pointercancel',soltarArrastre);
+ el.classList.remove('arrastrando');document.body.classList.remove('arrastrando-ya');
+ const ids=[...cont.children].map(x=>x.dataset.id);
+ if(ids.join(',')===antes)return;   // no se movió
+ run(async()=>{try{   // guarda el nuevo orden (1, 2, 3...) solo en los productos que cambiaron de lugar
+   for(let k=0;k<ids.length;k++){const r=rows.find(x=>String(x.id)===ids[k]);if(r&&r.orden!==k+1)await patch(r.id,{orden:k+1})}
+  }catch(err){await load();throw err}},'Orden guardado ✓')}
 
 /* =========================================================
    ACCIONES · ordenar, ocultar y eliminar

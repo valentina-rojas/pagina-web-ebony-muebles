@@ -9,7 +9,7 @@
 create table if not exists public.productos (
   id           bigint generated always as identity primary key,
   categoria    text not null check (categoria in
-                 ('bibliotecas','espejos','escritorios','vanitorys','percheros',
+                 ('bibliotecas','armeros','escritorios','vanitorys','percheros',
                   'cristaleros','dormitorio','cocina','living')),
   nombre       text not null,
   descripcion  text,

@@ -34,7 +34,9 @@ PRIMER USO
   (se reduce sola a un tamaño liviano). Podés marcarlo como "Destacado" para que salga en el carrusel.
 - Filtro por categoría: arriba de la lista hay botones con cada categoría y la cantidad de productos. Tocá uno para ver
   solo esa; "Todas" muestra todo. El filtro se recuerda, y "+ Agregar producto" parte de la categoría elegida.
-- Cada producto tiene flechas para subirlo o bajarlo de orden, y botones para Editar, Ocultar y Eliminar.
+- Para cambiar el orden: agarrá el ícono ⋮⋮ de la izquierda de un producto, arrastralo y soltalo en su nuevo lugar
+  (funciona con mouse y con el dedo). También están las flechas ↑ ↓ para moverlo de a uno.
+- Cada producto tiene además botones para Editar, Ocultar y Eliminar.
 - Arriba de la lista hay botones para FILTRAR por categoría (con la cantidad de fotos de cada una). El panel recuerda
   la última categoría elegida; "Todas" vuelve a mostrar todo.
 
@@ -50,3 +52,10 @@ SEGURIDAD
 - La clave pública puede estar en la página: solo permite LEER productos visibles.
 - Escribir, subir o borrar solo lo puede hacer el correo configurado en supabase.sql, con su contraseña.
 - admin.html no está enlazado desde la página y pide contraseña, pero conviene no compartir su dirección.
+
+CAMBIAR EL NOMBRE DE UNA CATEGORÍA (ejemplo: espejos -> armeros)
+- En el sitio: js/datos.js (en C, FOTOS y DESTACADOS), js/admin.js (CATS y LOCALES), y renombrar las carpetas
+  imagenes/espejos -> imagenes/armeros e imagenes/portadas/espejos.jpg -> armeros.jpg.
+- En Supabase: ejecutar supabase-renombrar-categoria.sql (SQL Editor > Run) ANTES de subir el sitio actualizado.
+  Ese archivo mueve los productos de la categoría vieja a la nueva. Para otra categoría, editá los nombres en el archivo.
+- Si empezás un proyecto nuevo, supabase.sql ya trae la lista actualizada.

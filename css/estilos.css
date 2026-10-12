@@ -33,6 +33,11 @@ html{
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Nunito,system-ui,sans-serif}
 h1,h2,h3{font-family:Poppins,Nunito,system-ui,sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.03em;margin:0}
 a{color:inherit}
+/* Cursores: flecha común sobre los textos (no el cursor de escribir), manito en lo clickeable,
+   y cursor de texto solo dentro de los campos del formulario */
+body{cursor:default}
+a,button,summary,select,label{cursor:pointer}
+input,textarea{cursor:text}
 :focus-visible{outline:3px solid var(--acento);outline-offset:3px}
 section{padding:10vh 5vw}
 
@@ -57,6 +62,7 @@ nav{
   background:var(--bg);border-bottom:1px solid var(--linea);
 }
 nav b{font:600 1.2rem Poppins,Nunito,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.burger{display:none}   /* el botón de 3 rayitas solo aparece en celular */
 nav div a{margin-left:22px;text-decoration:none}
 nav div a:hover{color:var(--acento)}
 
@@ -75,13 +81,29 @@ nav div a:hover{color:var(--acento)}
 .dd li a:hover{background:var(--arena);color:var(--acento)}
 .dd li:first-child{border-bottom:1px solid var(--linea);margin-bottom:6px}
 
-@media(max-width:760px){
-  nav{flex-direction:column;gap:8px;padding:12px 5vw}
+@media(max-width:760px){      /* celular: marca + botón de 3 rayitas, y el menú se despliega abajo */
+  nav{padding:12px 5vw}
   nav b{font-size:1rem}
-  nav div{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 20px}
-  nav div a,.dd{margin-left:0;font-size:.95rem}
-  .dd{position:static}                          /* la lista se abre del ancho de la pantalla */
-  .dd ul{left:5vw;right:5vw;top:100%;min-width:0}
+  .burger{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;margin-right:-8px;
+    padding:0 10px;background:none;border:0;cursor:pointer;
+  }
+  .burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #menu-nav{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;padding:4px 5vw 14px;
+    background:var(--bg);border-bottom:1px solid var(--linea);box-shadow:0 12px 24px rgba(60,40,20,.1);
+    max-height:calc(100vh - 70px);overflow:auto;
+  }
+  #menu-nav.abierto{display:flex}
+  #menu-nav>a,.dd summary{margin:0;padding:14px 4px;font-size:1.05rem;border-bottom:1px solid var(--linea)}
+  .dd{display:block;margin:0}
+  .dd summary{display:flex;justify-content:space-between;align-items:center}
+  .dd ul{position:static;min-width:0;padding:2px 0 6px 14px;border:0;background:none;box-shadow:none}
+  .dd li:first-child{border-bottom:0;margin-bottom:0}
+  .dd li a{padding:11px 4px}
 }
 
 
