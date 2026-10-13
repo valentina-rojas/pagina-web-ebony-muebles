@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Ebony Muebles</title>
+    <!-- Página para direcciones que no existen (por ejemplo, enlaces viejos de Google):
+     si reconoce el nombre lleva a la sección equivalente; si no, lleva al inicio. -->
+    <script>
+      (function () {
+        var destinos = {
+          dormitorio: "#/dormitorio",
+          escritorios: "#/escritorios",
+          cristaleros: "#/cristaleros",
+          vanitorys: "#/vanitorys",
+          cocina: "#/cocina",
+          bibliotecas: "#/bibliotecas",
+          percheros: "#/percheros",
+          living: "#/living",
+          armeros: "#/armeros",
+          espejos: "#/armeros",
+          empresa: "#nosotros",
+          nosotros: "#nosotros",
+          productos: "#productos",
+          contacto: "#contacto",
+          home: "",
+        };
+        var parte = (location.pathname.split("/").filter(Boolean)[0] || "")
+          .replace(/\.html?$/, "")
+          .toLowerCase();
+        location.replace("/" + (destinos[parte] || ""));
+      })();
+    </script>
+  </head>
+  <body style="font-family: sans-serif; padding: 2rem">
+    <p>Redirigiendo a <a href="/">Ebony Muebles</a>…</p>
+  </body>
+</html>
