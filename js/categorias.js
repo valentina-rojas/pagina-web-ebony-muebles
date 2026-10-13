@@ -5,6 +5,7 @@
    - las opciones del formulario de contacto
    Para agregar una categoría, solo hay que sumarla en datos.js.
    ========================================================= */
+   
 (function () {
   const items = Object.entries(C);
 

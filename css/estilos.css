@@ -1,17 +1,5 @@
-/* ==========================================================
-   EBONY MUEBLES · ESTILOS DEL SITIO
-   ----------------------------------------------------------
-    1. Base y colores        7. Productos destacados
-    2. Botones               8. Contacto
-    3. Menú                  9. Galería de una categoría
-    4. Inicio               10. Ficha de producto (visor)
-    5. La empresa           11. Pie de página
-    6. Categorías           12. Animaciones y movimiento reducido
-   ========================================================== */
 
-
-/* ---------- 1. BASE Y COLORES ----------
-   Para cambiar la paleta de todo el sitio, editá estos valores. */
+/* ---------- 1. BASE Y COLORES ---------- */
 :root{
   --bg:#f5eee3;          /* fondo general (crema) */
   --ink:#3a2418;         /* texto (marrón oscuro) */
@@ -33,8 +21,7 @@ html{
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Nunito,system-ui,sans-serif}
 h1,h2,h3{font-family:Poppins,Nunito,system-ui,sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.03em;margin:0}
 a{color:inherit}
-/* Cursores: flecha común sobre los textos (no el cursor de escribir), manito en lo clickeable,
-   y cursor de texto solo dentro de los campos del formulario */
+/* Cursores */
 body{cursor:default}
 a,button,summary,select,label{cursor:pointer}
 input,textarea{cursor:text}
@@ -81,7 +68,7 @@ nav div a:hover{color:var(--acento)}
 .dd li a:hover{background:var(--arena);color:var(--acento)}
 .dd li:first-child{border-bottom:1px solid var(--linea);margin-bottom:6px}
 
-@media(max-width:760px){      /* celular: marca + botón de 3 rayitas, y el menú se despliega abajo */
+@media(max-width:760px){      /* celular */
   nav{padding:12px 5vw}
   nav b{font-size:1rem}
   .burger{

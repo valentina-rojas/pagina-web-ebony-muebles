@@ -1,158 +1,265 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ebony Muebles — Muebles artesanales clásicos</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Ebony Muebles — Muebles artesanales</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- ===== MENÚ SUPERIOR ===== -->
+    <nav>
+      <b>Ebony Muebles</b>
+      <button
+        class="burger"
+        id="burger"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu-nav"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <div id="menu-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <details class="dd" id="dd">
+          <summary>Productos</summary>
+          <ul id="menu-categorias"></ul>
+        </details>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
 
-<!-- =====================================================
-     ESTRUCTURA DE LA PÁGINA
-     Los estilos están en css/estilos.css y la lógica en js/*.js.
-     Las categorías (menú, tarjetas y lista del formulario)
-     se generan solas desde js/datos.js.
-     ===================================================== -->
+    <!-- ===== PÁGINA PRINCIPAL (inicio + empresa + productos + destacados + contacto) ===== -->
+    <div id="home">
+      <!-- Inicio -->
+      <header class="hero" id="inicio">
+        <div
+          class="hero-bg"
+          role="img"
+          aria-label="Mueble de living tallado en madera"
+        ></div>
+        <div class="hero-texto">
+          <div class="eyebrow">Desde el año 2000</div>
+          <h1>Ebony Muebles</h1>
+          <p>
+            Desde el año 2000, venimos trabajando para brindarles muebles
+            clásicos, con la mejor calidad y diseño.
+          </p>
+          <p>
+            Desde sus comienzos y hasta la actualidad en Ebony Muebles seguimos
+            en la búsqueda de la excelencia en muebles para el hogar.
+          </p>
+          <p>
+            Funcionalidad, estética y diseño nos caracterizan. Seriedad,
+            responsabilidad y compromiso con los clientes son los valores
+            esenciales de la empresa. Fabricamos muebles artesanales estilo
+            antiguo, en cedro o roble, tallados a mano, con calidad y
+            exclusividad en su diseño.
+          </p>
+          <a class="btn" href="#productos">Ver productos</a>
+        </div>
+      </header>
 
-<!-- ===== MENÚ SUPERIOR ===== -->
-<nav>
-<b>Ebony Muebles</b>
-<button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-nav"><span></span><span></span><span></span></button>
-<div id="menu-nav">
-<a href="#inicio">Inicio</a>
-<a href="#nosotros">Nosotros</a>
-<details class="dd" id="dd"><summary>Productos</summary><ul id="menu-categorias"></ul></details>
-<a href="#contacto">Contacto</a>
-</div>
-</nav>
+      <!-- La empresa -->
+      <section class="about" id="nosotros">
+        <div class="fotobox">
+          <img
+            class="foto"
+            alt="Perchero tallado a mano en el taller de Ebony Muebles"
+            src="imagenes/empresa.jpg"
+          />
+        </div>
+        <div class="atext">
+          <h2>La empresa</h2>
+          <p>
+            En Ebony nos dedicamos a la fabricación artesanal de muebles.
+            Artesanal porque nuestros muebles no poseen el acabado de un mueble
+            estándar o seriado, y eso es lo que hace de cada pieza algo único y
+            exclusivo.
+          </p>
+          <p>
+            La pasión y dedicación del artesano está reflejada en cada etapa de
+            la producción. Desde el diseño hasta el acabado final mantenemos
+            siempre el mismo objetivo, el de respetar la nobleza de nuestra
+            materia prima principal: la madera.
+          </p>
+          <p>
+            No solo trabajamos sobre diseños propios sino que atendemos las
+            inquietudes de nuestros clientes y nos adaptamos a sus necesidades,
+            pensando en la mejora continua porque en Ebony fabricamos muebles en
+            serio, no en serie.
+          </p>
+        </div>
+        <div class="facts">
+          <div><strong>Desde 2000</strong>fabricando muebles clásicos</div>
+          <div><strong>Envíos</strong>a todo el país</div>
+          <div><strong>Diseño propio</strong>y a medida de cada cliente</div>
+        </div>
+      </section>
 
-<!-- ===== PÁGINA PRINCIPAL (inicio + empresa + productos + destacados + contacto) ===== -->
-<div id="home">
+      <!-- Categorías -->
+      <section class="productos" id="productos">
+        <h2>Nuestros productos</h2>
+        <p>Elegí una categoría para ver los modelos disponibles.</p>
+        <div class="grid" id="grid-categorias"></div>
+      </section>
 
-<!-- Inicio: la foto de fondo es imagenes/inicio.jpg -->
-<header class="hero" id="inicio">
-<div class="hero-bg" role="img" aria-label="Mueble de living tallado en madera"></div>
-<div class="hero-texto">
-<div class="eyebrow">Desde el año 2000</div>
-<h1>Ebony Muebles</h1>
-<p>Desde el año 2000, venimos trabajando para brindarles muebles clásicos, con la mejor calidad y diseño.</p>
-<p>Desde sus comienzos y hasta la actualidad en Ebony Muebles seguimos en la búsqueda de la excelencia en muebles para el hogar.</p>
-<p>Funcionalidad, estética y diseño nos caracterizan. Seriedad, responsabilidad y compromiso con los clientes son los valores esenciales de la empresa. Fabricamos muebles artesanales estilo antiguo, en cedro o roble, tallados a mano, con calidad y exclusividad en su diseño.</p>
-<a class="btn" href="#productos">Ver productos</a>
-</div>
-</header>
+      <!-- Productos destacados -->
+      <section class="featured" id="destacados">
+        <div class="fhead">
+          <h2>Productos destacados</h2>
+          <div class="farrows">
+            <button id="fp" aria-label="Anterior">&larr;</button
+            ><button id="fn" aria-label="Siguiente">&rarr;</button>
+          </div>
+        </div>
+        <div
+          class="ftrack"
+          id="ft"
+          tabindex="0"
+          aria-label="Productos destacados"
+        ></div>
+      </section>
 
-<!-- La empresa: la foto es imagenes/empresa.jpg -->
-<section class="about" id="nosotros">
-<div class="fotobox"><img class="foto" alt="Perchero tallado a mano en el taller de Ebony Muebles" src="imagenes/empresa.jpg"></div>
-<div class="atext">
-<h2>La empresa</h2>
-<p>En Ebony nos dedicamos a la fabricación artesanal de muebles. Artesanal porque nuestros muebles no poseen el acabado de un mueble estándar o seriado, y eso es lo que hace de cada pieza algo único y exclusivo.</p>
-<p>La pasión y dedicación del artesano está reflejada en cada etapa de la producción. Desde el diseño hasta el acabado final mantenemos siempre el mismo objetivo, el de respetar la nobleza de nuestra materia prima principal: la madera.</p>
-<p>No solo trabajamos sobre diseños propios sino que atendemos las inquietudes de nuestros clientes y nos adaptamos a sus necesidades, pensando en la mejora continua porque en Ebony fabricamos muebles en serio, no en serie.</p>
-</div>
-<div class="facts">
-<div><strong>Desde 2000</strong>fabricando muebles clásicos</div>
-<div><strong>Envíos</strong>a todo el país</div>
-<div><strong>Diseño propio</strong>y a medida de cada cliente</div>
-</div>
-</section>
+      <!-- Contacto -->
+      <section class="contact" id="contacto">
+        <div>
+          <h2>Contacto</h2>
+          <p>
+            Contanos qué mueble buscás y te respondemos a la brevedad. También
+            podés pedir uno a medida.
+          </p>
+          <dl>
+            <dt>Teléfono / WhatsApp</dt>
+            <dd>+54 9 3492 61-1548</dd>
+            <dt>Instagram</dt>
+            <dd>
+              <a
+                href="https://www.instagram.com/ebonymuebles"
+                target="_blank"
+                rel="noopener"
+                >@ebonymuebles</a
+              >
+            </dd>
+            <dt>Dirección</dt>
+            <dd>Rafaela, Santa Fe</dd>
+            <dt>Envíos</dt>
+            <dd>A todo el país</dd>
+          </dl>
+        </div>
+        <form id="cf" novalidate>
+          <label>Nombre<input id="cn" required autocomplete="name" /></label>
+          <label
+            >Teléfono o correo<input id="cc" required autocomplete="email"
+          /></label>
+          <label>Categoría<select id="cs"></select></label>
+          <label>Mensaje<textarea id="cm" rows="5" required></textarea></label>
+          <button class="btn" type="submit">Enviar por WhatsApp</button>
+          <p id="cr" class="note" role="status">
+            Se abrirá WhatsApp con tu consulta lista para enviar.
+          </p>
+        </form>
+      </section>
+    </div>
+    <!-- /home -->
 
-<!-- Categorías: las tarjetas las arma js/categorias.js (portadas en imagenes/portadas/) -->
-<section class="productos" id="productos">
-<h2>Nuestros productos</h2>
-<p>Elegí una categoría para ver los modelos disponibles.</p>
-<div class="grid" id="grid-categorias"></div>
-</section>
+    <!-- ===== GALERÍA DE UNA CATEGORÍA  ===== -->
+    <main id="galeria" hidden>
+      <section class="gal">
+        <a class="back" href="#productos">Volver a productos</a>
+        <h2 id="gt"></h2>
+        <p id="gd"></p>
+        <div class="ggrid" id="gg"></div>
+        <a class="btn" href="#contacto">Consultar por esta categoría</a>
+      </section>
+    </main>
 
-<!-- Productos destacados: carrusel que arma js/destacados.js -->
-<section class="featured" id="destacados">
-<div class="fhead">
-<h2>Productos destacados</h2>
-<div class="farrows"><button id="fp" aria-label="Anterior">&larr;</button><button id="fn" aria-label="Siguiente">&rarr;</button></div>
-</div>
-<div class="ftrack" id="ft" tabindex="0" aria-label="Productos destacados"></div>
-</section>
+    <!-- ===== PIE DE PÁGINA ===== -->
+    <footer>
+      <div class="pie-texto">
+        <p>
+          Ebony Muebles | Rafaela - Santa Fe - Argentina | Teléfono: +54 9 3492
+          61-1548
+        </p>
+        <small>© 2026 Ebony Muebles. All rights reserved.</small>
+      </div>
+      <a class="subir" href="#inicio" aria-label="Volver arriba"
+        ><svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 20V5M5 12l7-7 7 7" /></svg
+      ></a>
+    </footer>
 
-<!-- Contacto: el formulario abre WhatsApp (js/contacto.js) -->
-<section class="contact" id="contacto">
-<div>
-<h2>Contacto</h2>
-<p>Contanos qué mueble buscás y te respondemos a la brevedad. También podés pedir uno a medida.</p>
-<dl>
-<dt>Teléfono / WhatsApp</dt><dd>+54 9 3492 61-1548</dd>
-<dt>Instagram</dt><dd><a href="https://www.instagram.com/ebonymuebles" target="_blank" rel="noopener">@ebonymuebles</a></dd>
-<dt>Dirección</dt><dd>Rafaela, Santa Fe</dd>
-<dt>Envíos</dt><dd>A todo el país</dd>
-</dl>
-</div>
-<form id="cf" novalidate>
-<label>Nombre<input id="cn" required autocomplete="name"></label>
-<label>Teléfono o correo<input id="cc" required autocomplete="email"></label>
-<label>Categoría<select id="cs"></select></label>
-<label>Mensaje<textarea id="cm" rows="5" required></textarea></label>
-<button class="btn" type="submit">Enviar por WhatsApp</button>
-<p id="cr" class="note" role="status">Se abrirá WhatsApp con tu consulta lista para enviar.</p>
-</form>
-</section>
+    <!-- ===== FICHA DE PRODUCTO  ===== -->
+    <div
+      id="lb"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Detalle del producto"
+    >
+      <button class="lbb" id="lbx" aria-label="Cerrar">&times;</button>
+      <div class="lbbox">
+        <div class="lbimg">
+          <button class="lbb" id="lbp" aria-label="Anterior">&lsaquo;</button>
+          <img alt="" />
+          <button class="lbb" id="lbn" aria-label="Siguiente">&rsaquo;</button>
+        </div>
+        <aside class="lbinfo">
+          <span id="lbcat"></span>
+          <h3 id="lbt"></h3>
+          <p id="lbd"></p>
+          <p class="price" id="lbpr"></p>
+          <a class="btn" id="lbw" target="_blank" rel="noopener"
+            >Consultar por WhatsApp</a
+          >
+          <a class="more" id="lbmore" href="#">Ver más de esta categoría</a>
+        </aside>
+      </div>
+    </div>
 
-</div><!-- /home -->
-
-<!-- ===== GALERÍA DE UNA CATEGORÍA (se muestra al elegir una categoría) ===== -->
-<main id="galeria" hidden>
-<section class="gal">
-<a class="back" href="#productos">Volver a productos</a>
-<h2 id="gt"></h2>
-<p id="gd"></p>
-<div class="ggrid" id="gg"></div>
-<a class="btn" href="#contacto">Consultar por esta categoría</a>
-</section>
-</main>
-
-<!-- ===== PIE DE PÁGINA ===== -->
-<footer>
-<div class="pie-texto">
-<p>Ebony Muebles | Rafaela - Santa Fe - Argentina | Teléfono: +54 9 3492 61-1548</p>
-<small>© 2026 Ebony Muebles. All rights reserved.</small>
-</div>
-<a class="subir" href="#inicio" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V5M5 12l7-7 7 7"/></svg></a>
-</footer>
-
-<!-- ===== FICHA DE PRODUCTO (visor que se abre al hacer clic en una foto) ===== -->
-<div id="lb" role="dialog" aria-modal="true" aria-label="Detalle del producto">
-<button class="lbb" id="lbx" aria-label="Cerrar">&times;</button>
-<div class="lbbox">
-<div class="lbimg">
-<button class="lbb" id="lbp" aria-label="Anterior">&lsaquo;</button>
-<img alt="">
-<button class="lbb" id="lbn" aria-label="Siguiente">&rsaquo;</button>
-</div>
-<aside class="lbinfo">
-<span id="lbcat"></span>
-<h3 id="lbt"></h3>
-<p id="lbd"></p>
-<p class="price" id="lbpr"></p>
-<a class="btn" id="lbw" target="_blank" rel="noopener">Consultar por WhatsApp</a>
-<a class="more" id="lbmore" href="#">Ver más de esta categoría</a>
-</aside>
-</div>
-</div>
-
-<!-- ===== SCRIPTS (el orden importa: cada uno usa lo definido antes) ===== -->
-<script src="config.js"></script>            <!-- conexión opcional con Supabase -->
-<script src="js/utilidades.js"></script>     <!-- funciones de ayuda -->
-<script src="js/datos.js"></script>          <!-- categorías, fotos, destacados, WhatsApp -->
-<script src="js/categorias.js"></script>     <!-- arma menú, tarjetas y lista del formulario -->
-<script src="js/animaciones.js"></script>    <!-- efectos al hacer scroll -->
-<script src="js/visor.js"></script>          <!-- ficha de producto -->
-<script src="js/destacados.js"></script>     <!-- carrusel de destacados -->
-<script src="js/galeria.js"></script>        <!-- galería de cada categoría -->
-<script src="js/contacto.js"></script>       <!-- formulario → WhatsApp -->
-<script src="js/menu.js"></script>           <!-- cierre del menú desplegable -->
-<script src="js/supabase.js"></script>       <!-- productos desde Supabase -->
-<script src="js/navegacion.js"></script>     <!-- cambio entre inicio y galerías -->
-<script src="js/app.js"></script>            <!-- arranque -->
-</body>
+    <!-- ===== SCRIPTS  ===== -->
+    <script src="config.js"></script>
+    <!-- conexión opcional con Supabase -->
+    <script src="js/utilidades.js"></script>
+    <!-- funciones de ayuda -->
+    <script src="js/datos.js"></script>
+    <!-- categorías, fotos, destacados, WhatsApp -->
+    <script src="js/categorias.js"></script>
+    <!-- arma menú, tarjetas y lista del formulario -->
+    <script src="js/animaciones.js"></script>
+    <!-- efectos al hacer scroll -->
+    <script src="js/visor.js"></script>
+    <!-- ficha de producto -->
+    <script src="js/destacados.js"></script>
+    <!-- carrusel de destacados -->
+    <script src="js/galeria.js"></script>
+    <!-- galería de cada categoría -->
+    <script src="js/contacto.js"></script>
+    <!-- formulario → WhatsApp -->
+    <script src="js/menu.js"></script>
+    <!-- cierre del menú desplegable -->
+    <script src="js/supabase.js"></script>
+    <!-- productos desde Supabase -->
+    <script src="js/navegacion.js"></script>
+    <!-- cambio entre inicio y galerías -->
+    <script src="js/app.js"></script>
+    <!-- arranque -->
+  </body>
 </html>

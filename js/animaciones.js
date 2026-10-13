@@ -1,7 +1,7 @@
 /* =========================================================
    ANIMACIONES AL HACER SCROLL
    Los elementos aparecen subiendo suavemente cuando entran en pantalla.
-   (Los estilos del efecto están en css/estilos.css, sección 12.)
+   (los estilos del efecto están en css/estilos.css, sección 12.)
    ========================================================= */
 
 // Observa cuándo un elemento entra en pantalla y le agrega la clase "in"

@@ -5,6 +5,7 @@
    (solo en las categorías que tengan productos). Si algo falla,
    el sitio sigue funcionando con las fotos de la carpeta "imagenes".
    ========================================================= */
+   
 async function cargarSupabase() {
   if (typeof SUPA_URL !== 'string' || !SUPA_URL || !SUPA_KEY) return false;   // no configurado
   try {

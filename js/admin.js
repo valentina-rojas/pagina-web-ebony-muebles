@@ -1,5 +1,4 @@
-/* Panel de productos de Ebony Muebles (admin.html)
-   Necesita config.js con SUPA_URL y SUPA_KEY. Ver GUIA-SUPABASE.txt */
+
 /* =========================================================
    CONFIGURACIÓN · categorías y datos básicos
    LOCALES = cuántas fotos hay en cada carpeta imagenes/<categoría>/
@@ -106,7 +105,7 @@ function iniciarArrastre(e,el){
  document.addEventListener('pointercancel',soltarArrastre);
  requestAnimationFrame(autoScroll)}
 function soltarArrastre(){
- if(!arr)return;
+ if(!arr)return; 
  const {el,cont,antes}=arr;arr=null;
  document.removeEventListener('pointermove',moverArrastre);
  document.removeEventListener('pointerup',soltarArrastre);

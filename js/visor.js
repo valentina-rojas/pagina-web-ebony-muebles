@@ -8,8 +8,6 @@ let visorItems = [];   // fotos que se pueden recorrer con las flechas
 let visorPos = 0;      // posición de la foto abierta
 
 // Abre el visor con una lista de fotos [{u: url, k: categoría, i: índice}] y la posición inicial.
-// Agrega una entrada al historial: así el botón "atrás" del celular/navegador cierra la ficha
-// en lugar de cambiar la página que está detrás.
 function abrirVisor(items, pos) {
   const yaAbierto = visor.classList.contains('on');
   visorItems = items;
@@ -44,8 +42,7 @@ function mostrarEnVisor(pos) {
   visor.classList.add('on');
 }
 
-// Cierra la ficha. Si se cierra con la X / Esc / fondo, también se quita la entrada del historial
-// (cuando se cierra con "atrás", el navegador ya la quitó: deHistorial = true).
+// Cierra la ficha. 
 function cerrarVisor(deHistorial) {
   if (!visor.classList.contains('on')) return;
   visor.classList.remove('on');

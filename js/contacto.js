@@ -2,6 +2,7 @@
    CONTACTO · el formulario abre WhatsApp con el mensaje armado
    (el número está en WA, en datos.js)
    ========================================================= */
+   
 const formContacto = byId('cf'), selCategoria = byId('cs');
 
 // Al llegar desde una galería ("Consultar por esta categoría"), deja elegida esa categoría

@@ -48,7 +48,7 @@ body.busy{cursor:progress}body.busy button{pointer-events:none;opacity:.7}body.b
 .it.arrastrando{position:relative;z-index:2;background:#fff;box-shadow:0 10px 28px rgba(58,36,24,.22)}
 body.arrastrando-ya,body.arrastrando-ya *{cursor:grabbing!important;user-select:none;-webkit-user-select:none}
 
-/* Cursores: flecha sobre los textos, manito en lo clickeable, cursor de texto solo en los campos */
+/* Cursores */
 body{cursor:default}
 a,button,select,label,.chip{cursor:pointer}
 input,textarea{cursor:text}

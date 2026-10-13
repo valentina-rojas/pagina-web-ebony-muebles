@@ -1,40 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Panel — Ebony Muebles</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/admin.css">
-</head>
-<body>
-<header class="top"><b>Ebony Muebles · Panel de productos</b><div><button class="btn sec" id="imp" hidden>Importar fotos actuales</button><button class="btn sec" id="out" hidden>Salir</button></div></header>
-<main>
-<p id="msg" role="status"></p>
-<section id="login" hidden>
-<h1>Ingresar</h1><br>
-<form id="lf"><label>Correo<input name="email" type="email" required autocomplete="username"></label>
-<label>Contraseña<input name="pw" type="password" required autocomplete="current-password"></label>
-<button class="btn">Entrar</button></form>
-</section>
-<section id="app" hidden>
-<div class="bar"><h1>Productos</h1><button class="btn" id="new">+ Agregar producto</button></div>
-<form id="pf" hidden>
-<label>Categoría<select name="categoria" id="fcat"></select></label>
-<label>Nombre<input name="nombre" maxlength="120" required></label>
-<label>Descripción<textarea name="descripcion" rows="4" maxlength="800"></textarea></label>
-<label>Imagen<input name="imagen" type="file" accept="image/*"></label>
-<img id="prev" alt="Vista previa">
-<label class="chk"><input type="checkbox" name="destacado"> Mostrar en “Productos destacados”</label>
-<label class="chk"><input type="checkbox" name="visible" checked> Visible en la página</label>
-<div class="row"><button class="btn" type="submit">Guardar</button><button class="btn sec" type="button" id="cancel">Cancelar</button></div>
-</form>
-<div id="filtros" class="chips" role="group" aria-label="Filtrar por categoría"></div>
-<div id="list"></div>
-</section>
-</main>
-<script src="config.js"></script>      <!-- datos de Supabase -->
-<script src="js/admin.js"></script>     <!-- lógica del panel -->
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Panel — Ebony Muebles</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <header class="top">
+      <b>Ebony Muebles · Panel de productos</b>
+      <div>
+        <button class="btn sec" id="imp" hidden>Importar fotos actuales</button
+        ><button class="btn sec" id="out" hidden>Salir</button>
+      </div>
+    </header>
+    <main>
+      <p id="msg" role="status"></p>
+      <section id="login" hidden>
+        <h1>Ingresar</h1>
+        <br />
+        <form id="lf">
+          <label
+            >Correo<input
+              name="email"
+              type="email"
+              required
+              autocomplete="username"
+          /></label>
+          <label
+            >Contraseña<input
+              name="pw"
+              type="password"
+              required
+              autocomplete="current-password"
+          /></label>
+          <button class="btn">Entrar</button>
+        </form>
+      </section>
+      <section id="app" hidden>
+        <div class="bar">
+          <h1>Productos</h1>
+          <button class="btn" id="new">+ Agregar producto</button>
+        </div>
+        <form id="pf" hidden>
+          <label>Categoría<select name="categoria" id="fcat"></select></label>
+          <label>Nombre<input name="nombre" maxlength="120" required /></label>
+          <label
+            >Descripción<textarea
+              name="descripcion"
+              rows="4"
+              maxlength="800"
+            ></textarea>
+          </label>
+          <label
+            >Imagen<input name="imagen" type="file" accept="image/*"
+          /></label>
+          <img id="prev" alt="Vista previa" />
+          <label class="chk"
+            ><input type="checkbox" name="destacado" /> Mostrar en “Productos
+            destacados”</label
+          >
+          <label class="chk"
+            ><input type="checkbox" name="visible" checked /> Visible en la
+            página</label
+          >
+          <div class="row">
+            <button class="btn" type="submit">Guardar</button
+            ><button class="btn sec" type="button" id="cancel">Cancelar</button>
+          </div>
+        </form>
+        <div
+          id="filtros"
+          class="chips"
+          role="group"
+          aria-label="Filtrar por categoría"
+        ></div>
+        <div id="list"></div>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <!-- datos de Supabase -->
+    <script src="js/admin.js"></script>
+    <!-- lógica del panel -->
+  </body>
 </html>

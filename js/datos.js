@@ -1,9 +1,5 @@
-/* =========================================================
-   DATOS DEL SITIO · lo que más se edita está acá
-   ========================================================= */
 
-/* ---- WhatsApp ----
-   Número en formato internacional, sin "+" ni espacios. */
+/* ---- WhatsApp ---- */
 const WA = '5493492611548';
 
 /* ---- Categorías ----

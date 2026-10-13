@@ -1,8 +1,4 @@
-/* =========================================================
-   PRODUCTOS DESTACADOS · carrusel deslizable
-   La lista sale de DESTACADOS (datos.js) o, si se usa Supabase,
-   de los productos marcados como "Destacado" en el panel.
-   ========================================================= */
+
 
 // Fotos del carrusel: [{u: url, k: categoría, i: índice}]
 let FEAT = DESTACADOS.map(([k, i]) => ({u: (P[k] || [])[i], k, i})).filter(x => x.u);
